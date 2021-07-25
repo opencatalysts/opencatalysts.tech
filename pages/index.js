@@ -1,7 +1,11 @@
 import { chakra } from '@chakra-ui/react';
 import Container from '../components/Container';
-import Header from '../components/Header';
+import CTA from '../components/CTA';
+import Features from '../components/Features';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import Products from '../components/Products';
 
 const Index = () => (
 	<Container height='auto' minH='100vh'>
@@ -13,9 +17,12 @@ const Index = () => (
 			flexDirection='column'
 			alignItems='center'
 			justifyContent='flex-start'
-			flex='1 0 auto'
+			flex='1'
 		>
-			Test
+			<Hero />
+			<Products />
+			<Features />
+			<CTA />
 		</chakra.div>
 		<Footer />
 	</Container>

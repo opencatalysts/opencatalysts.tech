@@ -2,25 +2,84 @@ import React from 'react';
 import Image from 'next/image';
 import {
 	chakra,
-	HStack,
-	Link,
-	Flex,
-	IconButton,
-	useColorModeValue,
-	useDisclosure,
+	Box,
+	Button,
 	CloseButton,
+	Flex,
+	HStack,
+	IconButton,
+	Link,
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+	SimpleGrid,
 	VStack,
 	useColorMode,
-	Icon,
+	useColorModeValue,
+	useDisclosure,
 } from '@chakra-ui/react';
-import { AiFillGithub, AiOutlineMenu } from 'react-icons/ai';
+import { IoIosArrowDown } from 'react-icons/io';
+import { AiOutlineMenu } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
+
+const Section = (props) => {
+	const hbg = useColorModeValue('gray.50', 'brand.700');
+	const tcl = useColorModeValue('gray.900', 'gray.50');
+	const dcl = useColorModeValue('gray.500', 'gray.50');
+	return (
+		<Link
+			m={-3}
+			p={3}
+			display='flex'
+			alignItems='start'
+			rounded='lg'
+			_hover={{ bg: hbg }}
+			href={props.href}
+		>
+			{props.icon}
+			<Box ml={4}>
+				<chakra.p fontSize='md' fontWeight='700' color={tcl}>
+					{props.title}
+				</chakra.p>
+				<chakra.p mt={1} fontSize='sm' color={dcl}>
+					{props.children}
+				</chakra.p>
+			</Box>
+		</Link>
+	);
+};
+
+const Features = (props) => {
+	return (
+		<React.Fragment>
+			<SimpleGrid
+				columns={props.h ? { base: 1, md: 3, lg: 5 } : 1}
+				pos='relative'
+				gap={{ base: 6, sm: 8 }}
+				px={5}
+				py={6}
+				p={{ sm: 8 }}
+			>
+				<Section
+					href='https://herald.opencatalysts.tech'
+					icon={
+						<Image src='/herald_logo.png' width={32} height={32} />
+					}
+					title='Herald'
+				>
+					Simple, open-source platform to announce product updates.
+				</Section>
+			</SimpleGrid>
+		</React.Fragment>
+	);
+};
 
 export default function Header() {
 	const { toggleColorMode: toggleMode } = useColorMode();
 	const text = useColorModeValue('dark', 'light');
 	const SwitchIcon = useColorModeValue(FaMoon, FaSun);
 	const bg = useColorModeValue('white', 'gray.800');
+	const cl = useColorModeValue('gray.800', 'white');
 	const ref = React.useRef();
 
 	const mobileNav = useDisclosure();
@@ -121,20 +180,29 @@ export default function Header() {
 								spacing='5'
 								display={{ base: 'none', md: 'flex' }}
 							>
-								<Link
-									isExternal
-									aria-label='Go to Choc UI GitHub page'
-									href='https://github.com/ilangorajagopal/herald'
-								>
-									<Icon
-										as={AiFillGithub}
-										display='block'
-										transition='color 0.2s'
-										w='5'
-										h='5'
-										_hover={{ color: 'gray.600' }}
-									/>
-								</Link>
+								<Popover placement='bottom-end'>
+									<PopoverTrigger>
+										<Button
+											bg={bg}
+											color='gray.500'
+											display='inline-flex'
+											alignItems='center'
+											fontSize='md'
+											_hover={{ color: cl }}
+											_focus={{ boxShadow: 'none' }}
+											rightIcon={<IoIosArrowDown />}
+										>
+											Products
+										</Button>
+									</PopoverTrigger>
+									<PopoverContent
+										w='100vw'
+										maxW='md'
+										_focus={{ boxShadow: 'md' }}
+									>
+										<Features />
+									</PopoverContent>
+								</Popover>
 								<IconButton
 									size='md'
 									fontSize='lg'
@@ -145,6 +213,18 @@ export default function Header() {
 									onClick={toggleMode}
 									icon={<SwitchIcon />}
 								/>
+								<Link
+									aria-label='Subscribe for updates'
+									href='#subscribe'
+								>
+									<Button
+										colorScheme='brand'
+										variant='solid'
+										size='sm'
+									>
+										Subscribe
+									</Button>
+								</Link>
 							</HStack>
 							<IconButton
 								display={{ base: 'flex', md: 'none' }}
