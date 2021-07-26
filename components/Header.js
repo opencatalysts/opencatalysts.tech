@@ -7,6 +7,7 @@ import {
 	CloseButton,
 	Flex,
 	HStack,
+	Icon,
 	IconButton,
 	Link,
 	Popover,
@@ -19,7 +20,7 @@ import {
 	useDisclosure,
 } from '@chakra-ui/react';
 import { IoIosArrowDown } from 'react-icons/io';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiFillGithub, AiOutlineMenu } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Section = (props) => {
@@ -203,6 +204,20 @@ export default function Header() {
 										<Features />
 									</PopoverContent>
 								</Popover>
+								<Link
+									isExternal
+									aria-label='Go to Choc UI GitHub page'
+									href='https://github.com/opencatalysts'
+								>
+									<Icon
+										as={AiFillGithub}
+										display='block'
+										transition='color 0.2s'
+										w='5'
+										h='5'
+										_hover={{ color: 'gray.600' }}
+									/>
+								</Link>
 								<IconButton
 									size='md'
 									fontSize='lg'
@@ -213,18 +228,6 @@ export default function Header() {
 									onClick={toggleMode}
 									icon={<SwitchIcon />}
 								/>
-								<Link
-									aria-label='Subscribe for updates'
-									href='#subscribe'
-								>
-									<Button
-										colorScheme='brand'
-										variant='solid'
-										size='sm'
-									>
-										Subscribe
-									</Button>
-								</Link>
 							</HStack>
 							<IconButton
 								display={{ base: 'flex', md: 'none' }}

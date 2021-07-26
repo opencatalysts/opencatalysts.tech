@@ -26,7 +26,7 @@ const Products = () => {
 					textTransform='uppercase'
 					letterSpacing='wide'
 				>
-					We ♥ Open Source
+					We <chakra.span color='red.500'>♥</chakra.span> Open Source
 				</chakra.p>
 				<chakra.h2
 					mt={2}
@@ -57,7 +57,7 @@ const Products = () => {
 						<chakra.h3
 							mb={4}
 							fontSize={{ base: '2xl', md: '4xl' }}
-							fontWeight='extrabold'
+							fontWeight='bold'
 							letterSpacing='tight'
 							textAlign={{ base: 'center', md: 'left' }}
 							color={useColorModeValue('gray.900', 'gray.400')}
@@ -85,6 +85,7 @@ const Products = () => {
 							}}
 							color={useColorModeValue('gray.100', 'gray.200')}
 							as='a'
+							href='https://herald.opencatalysts.tech'
 						>
 							Learn More
 						</Button>
@@ -95,12 +96,16 @@ const Products = () => {
 						d='flex'
 						alignItems='center'
 						justifyContent='center'
-						py={32}
+						py={24}
 						bg={useColorModeValue('gray.200', 'gray.700')}
 						rounded='lg'
 						shadow='lg'
 					>
-						<Image src='/herald_logo.png' width={80} height={80} />
+						<Image
+							src='/herald_logo.png'
+							width={128}
+							height={128}
+						/>
 					</Box>
 				</SimpleGrid>
 				{/* <SimpleGrid

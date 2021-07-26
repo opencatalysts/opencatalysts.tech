@@ -1,14 +1,6 @@
 import React from 'react';
-import {
-	chakra,
-	Box,
-	Button,
-	Flex,
-	FormControl,
-	Input,
-	Stack,
-	useColorModeValue,
-} from '@chakra-ui/react';
+import { chakra, Box, Flex, useColorModeValue } from '@chakra-ui/react';
+import SubscriptionForm from './SubscriptionForm';
 
 const CTA = () => {
 	return (
@@ -49,52 +41,7 @@ const CTA = () => {
 							Sign up for our newsletter.
 						</chakra.span>
 					</chakra.span>
-					<Stack
-						w='md'
-						direction={{ base: 'column', md: 'row' }}
-						as={'form'}
-						spacing={'12px'}
-						onSubmit={(e) => {
-							e.preventDefault();
-						}}
-					>
-						<FormControl>
-							<Input
-								h={12}
-								variant={'solid'}
-								borderWidth={1}
-								color={'gray.800'}
-								_placeholder={{
-									color: 'gray.400',
-								}}
-								borderColor={useColorModeValue(
-									'gray.300',
-									'gray.700'
-								)}
-								id={'email'}
-								type={'email'}
-								required
-								placeholder={'Your Email'}
-								aria-label={'Your Email'}
-								value={''}
-								disabled={false}
-								onChange={(e) => {
-									console.log(e);
-								}}
-							/>
-						</FormControl>
-						<FormControl w={{ base: '100%', md: '40%' }}>
-							<Button
-								colorScheme='brand'
-								h={12}
-								isLoading={false}
-								w='100%'
-								type='submit'
-							>
-								Subscribe
-							</Button>
-						</FormControl>
-					</Stack>
+					<SubscriptionForm />
 				</Box>
 			</Flex>
 		</Flex>

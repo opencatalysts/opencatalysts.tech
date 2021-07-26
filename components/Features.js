@@ -7,6 +7,14 @@ import {
 	Icon,
 	Stack,
 } from '@chakra-ui/react';
+import { BiPaint } from 'react-icons/bi';
+import {
+	IoCodeSlashOutline,
+	IoMoonOutline,
+	IoSettingsOutline,
+	IoRocketOutline,
+} from 'react-icons/io5';
+import { HiOutlineLightningBolt } from 'react-icons/hi';
 
 const Features = () => {
 	const Feature = (props) => {
@@ -21,16 +29,7 @@ const Features = () => {
 				shadow='lg'
 				rounded='lg'
 			>
-				<Icon
-					boxSize={6}
-					fill='none'
-					viewBox='0 0 24 24'
-					stroke='currentColor'
-					aria-hidden='true'
-					mb={4}
-				>
-					{props.icon}
-				</Icon>
+				<Icon as={props.icon} w={6} h={6} color='brand.400' mb={4} />
 				<chakra.dt
 					fontSize='xl'
 					fontWeight='medium'
@@ -82,8 +81,8 @@ const Features = () => {
 							mx={{ lg: 'auto' }}
 							color={useColorModeValue('gray.500', 'gray.400')}
 						>
-							Opinionated and designed for quick deployments,
-							quick access and scalable usage.
+							Built on open source, opinionated, designed for easy
+							deployments, quick access and scalable usage.
 						</chakra.p>
 					</Box>
 
@@ -97,14 +96,7 @@ const Features = () => {
 						>
 							<Feature
 								title='Open Source'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9'
-									/>
-								}
+								icon={IoCodeSlashOutline}
 							>
 								All code is available on Github. You can
 								download and host it anywhere you want.
@@ -112,44 +104,20 @@ const Features = () => {
 
 							<Feature
 								title='Easy Configuration'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3'
-									/>
-								}
+								icon={IoSettingsOutline}
 							>
 								Plenty of configuration options means you spend
 								less time fiddling to make it work.
 							</Feature>
 
-							<Feature
-								title='Themeable'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M13 10V3L4 14h7v7l9-11h-7z'
-									/>
-								}
-							>
+							<Feature title='Themeable' icon={BiPaint}>
 								Just update your logo and brand colors in
 								theme.js to fit the UI to your brand.
 							</Feature>
 
 							<Feature
 								title='Powered by Supabase'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z'
-									/>
-								}
+								icon={HiOutlineLightningBolt}
 							>
 								Authentication, database and storage are powered
 								by Supabase.
@@ -157,14 +125,7 @@ const Features = () => {
 
 							<Feature
 								title='Light and Dark Mode'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z'
-									/>
-								}
+								icon={IoMoonOutline}
 							>
 								Easily switch between light and dark themes or
 								pick one and roll with it. Your choice.
@@ -172,14 +133,7 @@ const Features = () => {
 
 							<Feature
 								title='Easy to start and scale'
-								icon={
-									<path
-										strokeLinecap='round'
-										strokeLinejoin='round'
-										strokeWidth='2'
-										d='M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z'
-									/>
-								}
+								icon={IoRocketOutline}
 							>
 								Get going in under an hour. Scale easily as you
 								grow your product.
